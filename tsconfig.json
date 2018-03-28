@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "ES6",
+        "jsx": "react",
+        "baseUrl": "./src",
+        "strictFunctionTypes": true,
+		"strictNullChecks": true,
+		"strictPropertyInitialization": true,
+		"strict": true,
+		"noImplicitAny": true,
+        "noImplicitThis": true,
+        "sourceMap": true,
+        "noUnusedLocals": true,
+
+        "sourceRoot": "src",
+        "outDir": "build",
+
+        "importHelpers": true,
+        "emitDecoratorMetadata": true,
+        "esModuleInterop": true,
+		"experimentalDecorators": true
+    },
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "dist/",
+        "node_modules/"
+    ]
+}
