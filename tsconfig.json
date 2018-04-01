@@ -3,7 +3,15 @@
         "module": "commonjs",
         "target": "ES6",
         "jsx": "react",
-        "baseUrl": "./src",
+        "lib": [
+            "es6",
+            "dom",
+            "esnext.asynciterable"
+        ],
+        "baseUrl": ".",
+        "paths": {
+            "@app/*": ["src/*"]
+        },
         "strictFunctionTypes": true,
 		"strictNullChecks": true,
 		"strictPropertyInitialization": true,
@@ -22,6 +30,8 @@
 		"experimentalDecorators": true
     },
     "exclude": [
+        "server/",
+        "webpack.config.ts",
         "node_modules/"
     ]
 }

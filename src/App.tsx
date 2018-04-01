@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Timer } from 'components/Timer';
+import { Link } from '@app/components';
 
 export default class App extends React.Component {
 
@@ -9,7 +9,10 @@ export default class App extends React.Component {
             <div>
                 <p>Hello, World!</p>
                 <br/>
-                <Timer/>
+                <Link
+                    uri="http://google.com"
+                    description="Google website"
+                />
             </div>
         );
     }

@@ -12,27 +12,26 @@ const srcDir = path.resolve(__dirname, "src");
 const distDir = path.resolve(__dirname, "dist");
 
 const webpackConfig: Configuration = {
-    entry: [
-        './src/index.ts'
-    ],
+    entry: path.join(srcDir, 'index.tsx'),
     output: {
         filename: 'bundle.js',
         path: distDir
     },
-    devtool: 'eval-source-map',
+    mode: 'development',
+    devtool: 'inline-source-map',
     resolve: {
-        // modules: [
-        //     srcDir,
-        //     "node_modules"
-        // ],
+        plugins: [
+            new TsConfigPathsPlugin()
+        ],
         extensions: [
-            ".ts", ".tsx"
+            ".ts", ".tsx", ".js"
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin(),
         new ForkTsCheckerWebpackPlugin(),
-        new TsConfigPathsPlugin()
+        new HtmlWebpackPlugin({
+            template: 'assets/index.html'
+        })
     ],
     module: {
         rules: [
@@ -45,8 +44,15 @@ const webpackConfig: Configuration = {
                         // happyPackMode: true,
                         transpileOnly: true,
                     }
-                },
-                
+                },   
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.(woff|woff2|ttf|png|jpg|svg|eot)$/,
+                use: 'file-loader'
             }
         ]
     }
