@@ -1,21 +1,17 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
+import { Link as ILink } from '@server-api';
 
-export interface LinkProps {
-    uri: string;
-    description: string;
-}
-
-export class Link extends React.Component<LinkProps> {
+export class Link extends React.Component<{ link: ILink }> {
 
     render() {
-        const { uri, description } = this.props;
+        const { url, description } = this.props.link;
         return (
             <Button
                 basic
                 color='orange'
                 content={description}
-                onClick={() => { window.open(uri) }}
+                onClick={() => { window.open(url) }}
             />
         );
     }
